@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import Favorite from '../views/Favorite.vue'
+import Home from './views/Home.vue';
+import Favorite from './views/Favorite.vue'
 
 const routes = [
     {
@@ -16,7 +16,7 @@ const routes = [
     {
       path: '/pages/:id',
       name: 'PhotoPage',
-      component: () => import('../views/PhotoPage.vue')
+      component: () => import('./views/PhotoPage.vue')
     },
 ]
 
