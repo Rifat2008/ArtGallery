@@ -25,6 +25,7 @@ data() {
 },
 mounted() {
   this.favorite = this.$store.getters.favorite;
+  console.log(this.favorite);
 }
 }
 </script>

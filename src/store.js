@@ -35,8 +35,7 @@ export default createStore({
       }
     },
     deleteFromFavorite(state, image) {
-      const resultedFavorite = state.favorite.filter((item) => item.id !== image.id);
-      localStorage.setItem('favoriteImages', JSON.stringify(resultedFavorite)); 
+      state.favorite = state.favorite.filter((item) => item.id !== image.id);
     },
   },
 
@@ -72,6 +71,11 @@ export default createStore({
       } catch (error) {
         console.error('Ошибка при загрузке фотографии', error);
       }
+    },
+
+    async deleteAndSyncFavorite({ commit, state }, image) {
+      commit('deleteFromFavorite', image);
+      localStorage.setItem('favoriteImages', JSON.stringify(state.favorite));
     },
   },
 

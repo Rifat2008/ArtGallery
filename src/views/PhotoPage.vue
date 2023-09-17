@@ -70,7 +70,7 @@ export default {
         this.$store.commit('addToFavorite', image);
         this.isSelected = true;
       } else {
-        this.$store.commit('deleteFromFavorite', image);
+        this.$store.dispatch('deleteAndSyncFavorite', image);
         this.isSelected = false;
       }
     }
@@ -81,12 +81,11 @@ export default {
 
 <style scoped>
 .photo-page {
-  height: 774px;
   position: relative;
 }
 
 .photo-page__bcg {
-  height: 100%;
+  height: 100vh;
   background-size: cover; 
   background-position: center;
   filter: grayscale(100%);
