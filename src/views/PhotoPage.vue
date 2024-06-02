@@ -20,10 +20,10 @@
           <button :class="['photo-page__button-like', {'selected': isSelected}]" @click="toggleFavorite(image)">
             <img src="../assets/like-icon.png" alt="like-icon">
           </button>
-          <button class="photo-page__button-download">
+          <a class="photo-page__button-download" :href="image.urls.full" download target="_blank">
             <img src="../assets/download-icon.png" alt="download-icon">
             <p class="photo-page__button-download-text">Download</p>
-          </button>
+          </a>
         </div>
       </div>
       <div class="photo-page__image">
@@ -142,6 +142,10 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  transition: .3s;
+}
+.photo-page__button-like:hover {
+  background-color: #d0ff00;
 }
 .selected {
   background-color: #6cd625;
@@ -155,6 +159,10 @@ export default {
   padding-left: 23px;
   background-color: #FFF200;
   font-size: 20px;
+  transition: .3s;
+}
+.photo-page__button-download:hover {
+  background-color: #d0ff00;
 }
 .photo-page__button-download img {
   margin-right: 16px;
